@@ -1,0 +1,61 @@
+.todo-list-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 10%;
+
+  &__heading {
+    font-size: medium;
+  }
+  &__input-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  &__input-field {
+    display: flex;
+    align-items: center;
+    margin-right: 12px;
+    outline: royalblue;
+  }
+  &__button {
+    display: flex;
+    align-items: center;
+    .add-todo-button {
+      color: white;
+      background-color: red;
+    }
+  }
+}
+
+input {
+  padding: 12px;
+}
+
+.todos {
+  margin-top: 12px;
+  &__item {
+    margin-top: 5px;
+    padding: 4px 8px;
+    border: 1px solid #eeee;
+    display: flex;
+    align-items: center;
+    &__title {
+      flex: 1;
+      margin-right: 16px;
+    }
+    .material-icons {
+      color: red;
+      cursor: pointer;
+      &:hover {
+        color: #333;
+      }
+    }
+    &--limited {
+      background-color: #333;
+      color: white;
+    }
+  }
+}

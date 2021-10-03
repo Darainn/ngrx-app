@@ -1,0 +1,40 @@
+<div class="todo-list-container">
+  <div class="todo-list-container__heading">
+    <h1>Add your Todos</h1>
+  </div>
+  <div class="todo-list-container__input-container">
+    <div class="todo-list-container__input-field">
+      <input
+        [(ngModel)]="addedTodo"
+        matInput
+        type="text"
+        placeholder="Enter Your Todos"
+      />
+    </div>
+    <div class="todo-list-container__button">
+      <button
+        mat-stroked-button
+        class="add-todo-button"
+        type="button"
+        (click)="addTodo()"
+      >
+        Add Todos
+      </button>
+    </div>
+  </div>
+
+  <ng-container *ngIf="todosList?.length; else todoEmptyMessage">
+    <div class="todos">
+      <div class="todos__item" *ngFor="let todos of todosList">
+        <div class="todos__item__title">{{ todos.todo }}</div>
+        <div class="todos__item__delete-icon" (click)="removeTodo(todos)">
+          <div class="material-icons">delete</div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
+
+<ng-template #todoEmptyMessage>
+  <div>No items in Todo. Add some Todos!</div>
+</ng-template>
