@@ -22,12 +22,14 @@ export class ListComponent implements OnInit {
   ngOnInit(): void {}
 
   addTodo() {
-    const newTodo = {
-      id: Date.now(),
-      todo: this.addedTodo,
-    };
-    this.store.dispatch(addItemToList(newTodo));
-    this.selecTodo();
+    if (this.addedTodo) {
+      const newTodo = {
+        id: Date.now(),
+        todo: this.addedTodo,
+      };
+      this.store.dispatch(addItemToList(newTodo));
+      this.selecTodo();
+    }
     this.addedTodo = '';
   }
   removeTodo(todo: ITodo) {
