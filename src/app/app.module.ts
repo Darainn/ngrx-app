@@ -8,6 +8,8 @@ import { MaterialModule } from './shared/modules/material-module';
 import { ListModule } from './list/list.module';
 import { StoreModule } from '@ngrx/store';
 import * as appStore from './Store/app.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { TodosEffects } from './Store/app.effect';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,6 +20,7 @@ import * as appStore from './Store/app.reducer';
     MaterialModule,
     ListModule,
     StoreModule.forRoot({ app: appStore.reducer }),
+    EffectsModule.forRoot([TodosEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent],
